@@ -1,20 +1,24 @@
-function executarCodigo() {
+async function executarCodigo() {
   const codigo = document.getElementById("code").value;
   const consoleOutput = document.getElementById("console-output");
   consoleOutput.innerText = ""; // limpa saída anterior
 
-  // redireciona console.log para a tela
+  // guarda o console original
   const consoleLog = console.log;
+
+  // redireciona console.log para a janela personalizada
   console.log = function (...args) {
     consoleOutput.innerText += args.join(" ") + "\n";
-    consoleLog.apply(console, args); // opcional: mostra no devtools também
+    consoleLog.apply(console, args); // opcional: também mostra no devtools
   };
 
   try {
-    eval(codigo);
+    // executa o código JS como async para aguardar promises
+    await eval(`(async () => { ${codigo} })()`);
   } catch (erro) {
-    consoleOutput.innerText += "Erro: " + erro.message;
+    consoleOutput.innerText += "Erro: " + erro.message + "\n";
   }
 
-  console.log = consoleLog; // restaura console original
+  // restaura o console original depois que tudo terminar
+  console.log = consoleLog;
 }
