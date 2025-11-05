@@ -1,55 +1,122 @@
+/* ===== ESTILO GERAL ===== */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  background: linear-gradient(135deg, #0a192f, #1b3b6f);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   display: flex;
-  flex-direction: column; /* muda de lado a lado para cima e abaixo */
-  height: 100vh;
+  flex-direction: column;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
+/* ===== EDITOR ===== */
 .editor-panel {
-  flex: 1;
-  background: #ffffff;
-  border-bottom: 1px solid #ccc;
+  flex: 2;
+  background: #102a43;
   padding: 20px;
   box-sizing: border-box;
+  border-bottom: 2px solid #1e90ff;
 }
 
-.console-panel {
-  flex: 1;
-  background: #1e1e1e;
-  color: #00ff00;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+.editor-panel h2 {
+  margin-top: 0;
+  color: #58a6ff;
 }
 
 textarea {
   width: 100%;
   height: 70%;
+  background: #0b253a;
+  color: #dbe9ff;
+  border: 2px solid #1e90ff;
+  border-radius: 8px;
   font-family: monospace;
   font-size: 16px;
   padding: 10px;
   box-sizing: border-box;
   resize: none;
+  transition: all 0.2s ease;
 }
 
+textarea:focus {
+  outline: none;
+  border-color: #63b3ed;
+  background: #0a314f;
+}
+
+/* ===== BOTÃO ===== */
 button {
+  display: inline-block;
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #007bff, #00a2ff);
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #00a2ff, #007bff);
+  transform: scale(1.05);
+}
+
+/* ===== CONSOLE ===== */
+.console-panel {
+  flex: 1;
+  background: #0b192f;
+  color: #00d4ff;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.console-panel h2 {
+  margin-top: 0;
+  color: #58a6ff;
 }
 
 #console-output {
-  background: #000;
-  height: 80%;
+  background: #06121f;
+  border: 2px solid #1e90ff;
+  height: 60%;
   padding: 10px;
+  border-radius: 8px;
   white-space: pre-wrap;
   overflow-y: auto;
-  border-radius: 5px;
+  font-family: monospace;
+  color: #9be2ff;
+  box-shadow: inset 0 0 10px rgba(30, 144, 255, 0.3);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    height: 95vh;
+  }
+
+  textarea {
+    height: 60%;
+  }
+
+  #console-output {
+    height: 50%;
+  }
 }
