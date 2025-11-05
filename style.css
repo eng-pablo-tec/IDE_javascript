@@ -7,23 +7,24 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column; /* muda de lado a lado para cima e abaixo */
   height: 100vh;
 }
 
-.left-panel, .right-panel {
+.editor-panel {
   flex: 1;
+  background: #ffffff;
+  border-bottom: 1px solid #ccc;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.left-panel {
-  background: #ffffff;
-  border-right: 1px solid #ccc;
-}
-
-.right-panel {
+.console-panel {
+  flex: 1;
   background: #1e1e1e;
   color: #00ff00;
+  padding: 20px;
+  box-sizing: border-box;
   overflow-y: auto;
 }
 
@@ -34,11 +35,12 @@ textarea {
   font-size: 16px;
   padding: 10px;
   box-sizing: border-box;
+  resize: none;
 }
 
 button {
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
