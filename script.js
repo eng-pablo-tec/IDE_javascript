@@ -6,19 +6,19 @@ async function executarCodigo() {
   // guarda o console original
   const consoleLog = console.log;
 
-  // redireciona console.log para a janela personalizada
+  // redireciona console.log para o painel
   console.log = function (...args) {
     consoleOutput.innerText += args.join(" ") + "\n";
-    consoleLog.apply(console, args); // opcional: também mostra no devtools
+    consoleLog.apply(console, args);
   };
 
   try {
-    // executa o código JS como async para aguardar promises
+    // executa código JS de forma assíncrona
     await eval(`(async () => { ${codigo} })()`);
   } catch (erro) {
-    consoleOutput.innerText += "Erro: " + erro.message + "\n";
+    consoleOutput.innerText += "⚠️ Erro: " + erro.message + "\n";
   }
 
-  // restaura o console original depois que tudo terminar
+  // restaura o console original
   console.log = consoleLog;
 }
