@@ -5,13 +5,16 @@
   <title>Mini IDE JavaScript</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
+  <button id="theme-toggle">🌙 Modo Claro</button>
+
   <div class="container">
     <div class="editor-panel">
       <h2>Editor JavaScript</h2>
       <textarea id="code" placeholder="Escreva seu código JS aqui..."></textarea>
       <button onclick="executarCodigo()">▶ Executar Código</button>
     </div>
+
     <div class="console-panel">
       <h2>Console</h2>
       <div id="console-output"></div>
