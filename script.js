@@ -1,3 +1,17 @@
+// ===== ALTERAR TEMA =====
+const btnTema = document.getElementById("theme-toggle");
+const body = document.body;
+
+btnTema.addEventListener("click", () => {
+  body.classList.toggle("light");
+  body.classList.toggle("dark");
+
+  btnTema.textContent = body.classList.contains("light")
+    ? "🌞 Modo Escuro"
+    : "🌙 Modo Claro";
+});
+
+// ===== EXECUTAR CÓDIGO =====
 async function executarCodigo() {
   const codigo = document.getElementById("code").value;
   const consoleOutput = document.getElementById("console-output");
